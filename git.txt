@@ -1,0 +1,30 @@
+git init testgit
+git add xxxx
+git commit -m ""
+
+git reset --hard 版本号
+
+git checkout -- 文件名
+
+
+git clone https://github.com/qjwangl/testgit.git
+git push -u origin master
+**********************************************
+git add xxxx
+git commit -m ""
+git push origin master
+
+
+
+…or create a new repository on the command line
+echo "# workspace" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/qjwangl/workspace.git
+git push -u origin master
+…or push an existing repository from the command line
+git remote add origin https://github.com/qjwangl/workspace.git
+git push -u origin master
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
