@@ -5,4 +5,5 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     parameter.cpp \
-    sort.cpp
+    sort.cpp \
+    kmp.cpp
