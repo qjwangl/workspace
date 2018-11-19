@@ -7,4 +7,11 @@ SOURCES += main.cpp \
     parameter.cpp \
     sort.cpp \
     kmp.cpp \
-    kmp2.cpp
+    kmp2.cpp \
+    childtree.cpp \
+    fathertree.cpp \
+    brothertree.cpp \
+    threadtree.cpp
+
+HEADERS += \
+    tree.h
