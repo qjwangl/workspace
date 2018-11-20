@@ -14,14 +14,14 @@ typedef struct BiThreadNode
 
 //定义一个全局变量，始终指向刚刚访问过的节点
 BiThreadTree pre;
-
+int i = -1;
 //前序遍历创建二叉树
 void createBtTree (BiThreadTree &T)
 {
     char c;
     cin>>c;
 
-//    int i = 0;
+
 
 //    if(i == 0)
 //        c = 'A';
@@ -42,7 +42,7 @@ void createBtTree (BiThreadTree &T)
 //    else if(i == 8)
 //        c = '#';
 
-//    i++;
+//    cout << i << endl;
 
     if(c=='#')
     {
@@ -55,6 +55,7 @@ void createBtTree (BiThreadTree &T)
         T->ltag=T->rtag=link;
         createBtTree(T->lchild);
         createBtTree(T->rchild);
+        cout << "new BitThreadNode:" << c << endl;
     }
 }
 
@@ -64,7 +65,7 @@ void midOrderThread(BiThreadTree &T)
     if(T)
     {
         midOrderThread(T->lchild);
-//对节点进行处理,即把判断为线索的指针域修改为thread。注意修改前驱后继时分别对pre和T两个指针指向的节点进行处理。
+        //对节点进行处理,即把判断为线索的指针域修改为thread。注意修改前驱后继时分别对pre和T两个指针指向的节点进行处理。
         if(!T->lchild)
         {
             T->ltag=thread;
@@ -84,25 +85,25 @@ void midOrderThread(BiThreadTree &T)
 //建立头结点，并中序线索二叉树
 void inOrderThread(BiThreadTree &p,BiThreadTree &t)
 {
-   p=new BiThreadNode;
-   p->ltag=link;
-   p->rtag=thread;
-   p->rchild=p;
-   if(!t)
-   {
-       p->lchild=p;
-       p->ltag=link;
-   }
-   else
-   {
-       p->lchild=t;
-       pre=p;
-       midOrderThread(t);
-       pre->rchild=p;
-       pre->rtag=thread;
-       p->rchild=pre;
+    p=new BiThreadNode;
+    p->ltag=link;
+    p->rtag=thread;
+    p->rchild=p;
+    if(!t)
+    {
+        p->lchild=p;
+        p->ltag=link;
+    }
+    else
+    {
+        p->lchild=t;
+        pre=p;
+        midOrderThread(t);
+        pre->rchild=p;
+        pre->rtag=thread;
+        p->rchild=pre;
 
-   }
+    }
 
 }
 //非递归方式遍历二叉树并输出
@@ -128,8 +129,11 @@ void inOrderVisit(BiThreadTree p)
 }
 int main()
 {
- BiThreadTree Tree,p;
- createBtTree(Tree);
- inOrderThread(p,Tree);
- inOrderVisit(p);
+    BiThreadTree Tree,p;
+    createBtTree(Tree);
+    cout << "BitThreadTree create success!" << endl;
+    inOrderThread(p,Tree);
+    cout << "inOrderThread success!" << endl;
+    //inOrderVisit(p);
+    cout << "inOrderVisit" << endl;
 }

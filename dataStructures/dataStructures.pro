@@ -11,7 +11,8 @@ SOURCES += main.cpp \
     childtree.cpp \
     fathertree.cpp \
     brothertree.cpp \
-    threadtree.cpp
+    threadtree.cpp \
+    binarythreadtree.cpp
 
 HEADERS += \
     tree.h
